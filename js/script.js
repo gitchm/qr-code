@@ -22,6 +22,6 @@ function generateQR() {
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date+' '+time;
-  var joined = [name,bday,dateTime,sex,address,email,phone,temp];
+  var joined = name+";"+bday+";"+sex+";"+address+";"+phone+";"+email+";"+temp+";0;0;0;0;"+dateTime+";1";
   document.getElementById("content").value = joined;
 }
