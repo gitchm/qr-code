@@ -13,3 +13,7 @@
     font-size: 3.5rem;
   }
 }
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
