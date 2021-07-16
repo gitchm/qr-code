@@ -29,14 +29,14 @@
 </head>
 
 <body class="text-center justify-content-center mt-5 mb-5" id="gradient">
-  <form class="form_body" data-aos="fade-up" name="valForm" data-aos="zoom-in" onsubmit="return(validate());">
+  <form class="form_body" data-aos="fade-up" name="valForm" data-aos="zoom-in" data-aos-once="true" onsubmit="return(validate());">
     <img class="mt-2 mb-4" src="files/nerw_logo.png" alt="" width="300">
-    <h2 class="text-dark" data-aos="fade-up" data-aos-delay="550" data-aos-duration="2000">Enter Applicable Information</h2>
+    <h2 class="text-dark" data-aos-once="true" data-aos="fade-up" data-aos-delay="550" data-aos-duration="2000">Enter Applicable Information</h2>
     <div class="form-floating" data-aos="fade-down-left" data-aos-delay="350" data-aos-duration="500">
       <input type="text" class="form-control -overlayed" id="fname" name="nname" placeholder="Lastname-Firstname-Middle" onkeyup="success()" required>
       <label for="floatingInput">Full Name</label>
     </div>
-    <div class="form-floating" data-aos="fade-down-right" data-aos-delay="550" data-aos-duration="500">
+    <div class="form-floating" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="550" data-aos-duration="500">
       <input type="date" id="datepicker" name="ndate" class="form-control" placeholder="dd/mm/yyyy">
       <label for="floatingInput">Birthdate</label>
       <script>
@@ -45,7 +45,7 @@
         });
       </script>
     </div>
-    <div class="input-group form-floating" data-aos="fade-down-left" data-aos-delay="750" data-aos-duration="500">
+    <div class="input-group form-floating" data-aos-once="true" data-aos="fade-down-left" data-aos-delay="750" data-aos-duration="500">
       <label class="input-group-text" for="inputGroupSelect01">Gender</label>
       <select class="form-select" id="inputGroupSelect01">
         <option selected>Gender</option>
@@ -53,21 +53,22 @@
         <option value="Female">Female</option>
       </select>
     </div>
-    <div class="form-floating" data-aos="fade-down-right" data-aos-delay="950">
+    <div class="form-floating" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="950">
       <input type="text" class="form-control" rows="3" id="faddress" name="naddress" placeholder="blg.no/district/barangay/">
       <label for="floatingInput">Address</label>
     </div>
-    <div class="form-floating" data-aos="fade-down-left" data-aos-delay="1150">
+    <div class="form-floating" data-aos-once="true" data-aos="fade-down-left" data-aos-delay="1150">
       <input type="email" class="form-control" id="femail" name="nemail" placeholder="fname.lastname@gmail.com">
       <label for="floatingInput">Email</label>
     </div>
-    <div class="form-floating" data-aos="fade-down-right" data-aos-delay="1350">
+    <div class="form-floating" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="1350">
       <input type="number" class="form-control" id="fphone" name="nphone" placeholder="09123456789">
       <label for="floatingInput">Phone Number</label>
     </div>
-    <button type="button" class="w-100 btn btn-lg btn-primary mt-4" data-aos="flip-right" data-aos-delay="1450" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Generate QR Code</button>
-    <button type="button" class="w-100 btn btn-lg btn-info mt-2" data-aos="flip-right" data-aos-delay="1850" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#guidestatic">Guide</button>
-    <p class="mt-5 mb-3 text-muted" data-aos="zoom-in" data-aos-delay="2050" data-aos-duration="2000">&copy; Gabriel Asuncion </p>
+    <button type="button" class="w-100 btn btn-lg btn-primary mt-4" data-aos-once="true" data-aos="flip-right" data-aos-delay="1450" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Generate QR
+      Code</button>
+    <button type="button" class="w-100 btn btn-lg btn-info mt-2" data-aos-once="true" data-aos="flip-right" data-aos-delay="1850" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#guidestatic">Guide</button>
+    <p class="mt-5 mb-3 text-muted" data-aos-once="true" data-aos="zoom-in" data-aos-delay="2050" data-aos-duration="2000">&copy; Gabriel Asuncion </p>
   </form>
 
   <!-- Modal -->
