@@ -9,6 +9,9 @@ function getData(){
   var joined = [name,bday,sex,address,email,phone,temp];
   alert(joined.join(", "));
 }
+
+
+
 function generateQR() {
   var name = document.getElementById("fname").value;
   var bday = document.getElementById("datepicker").value;
@@ -22,9 +25,61 @@ function generateQR() {
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date+' '+time;
   var joined = name+";"+bday+";"+sex+";"+address+";"+phone+";"+email+";"+temp+";0;0;0;0;"+dateTime+";1";
-  document.getElementById("content").value = joined;
+  // var encrypted = CryptoJS.AES.encrypt(joined, "password");
+  // document.getElementById("content").value = encrypted;
+  document.getElementById("qr-name").innerHTML  = name;
+  var revjoined = document.getElementById("content").value = reverseString(joined);
+  var QR_CODE = new QRCode("qrcoder", {
+    logo: "files/qr-logo.png",
+    logoWidth: 65,
+    logoHeight: 65,
+    width: 360,
+    height: 360,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+});
+QR_CODE.makeCode(revjoined);
 }
 
+function clearCode(){
+  var QR_CODE = new QRCode("qrcoder", {
+    logo: "files/qr-logo.png",
+    width: 360,
+    height: 360,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+});QR_CODE.clear();
+}
+function clearQR(){
+  var QR_CODE = new QRCode("qrcoder", {
+    width: 520,
+    height: 520,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H,
+  });
+  QR_CODE.clear();
+}
+
+function takeshot() {
+    let div =document.getElementById('photo');
+    html2canvas(div).then(
+        function (canvas) {
+            document.getElementById('saved-output').appendChild(canvas);
+        })
+}
+
+function reverseString(str) {
+    var splitString = str.split("");
+
+    var reverseArray = splitString.reverse();
+
+    var joinArray = reverseArray.join("");
+
+    return joinArray;
+}
 
 var colors = new Array(
   [62,35,255],
