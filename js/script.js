@@ -30,7 +30,7 @@ function generateQR() {
   document.getElementById("qr-name").innerHTML  = name;
   var revjoined = document.getElementById("content").value = reverseString(joined);
   var QR_CODE = new QRCode("qrcoder", {
-    logo: "qr-code/files/qr-logo.png",
+    logo: "/files/qr-logo.png",
     logoWidth: 65,
     logoHeight: 65,
     width: 220,
