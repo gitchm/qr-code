@@ -37,7 +37,8 @@ function generateQR() {
     height: 320,
     colorDark : "#000000",
     colorLight : "#ffffff",
-    correctLevel : QRCode.CorrectLevel.H
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: false
 });
 QR_CODE.makeCode(revjoined);
 }
@@ -51,8 +52,10 @@ function clearCode(){
     height: 320,
     colorDark : "#000000",
     colorLight : "#ffffff",
-    correctLevel : QRCode.CorrectLevel.H
-});QR_CODE.clear();
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: false
+});
+QR_CODE.clear();
 }
 function dateFormat(el){
     value = el.value;

@@ -76,7 +76,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Generated QR Code</h5>
-          <button id="close-clicked" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="widget">
           <input type="text" size="60" class="form-control" id="content" placeholder="Enter content" style="display:none;" />
@@ -87,7 +86,7 @@
         </div>
         <div class="modal-footer">
           <a class="btn btn-primary" id="btnSave">Save</a>
-          <button id="close-clicked" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+          <button id="closeclicked" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
         </div>
       </div>
     </div>
@@ -98,7 +97,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">3 Step Process</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -183,7 +181,7 @@
 </script>
 <script>
   $(function() {
-    $('#close-clicked').click(function() {
+    $('#closeclicked').click(function() {
       clearCode();
     });
   });
