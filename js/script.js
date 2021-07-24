@@ -14,7 +14,7 @@ function getData(){
 
 function generateQR() {
   var name = document.getElementById("fname").value;
-  var bday = document.getElementById("datepicker").value;
+  var bday = document.getElementById("date").value;
   var sex = document.getElementById("inputGroupSelect01").value;
   var address = document.getElementById("faddress").value;
   var email = document.getElementById("femail").value;
@@ -54,7 +54,10 @@ function clearCode(){
     correctLevel : QRCode.CorrectLevel.H
 });QR_CODE.clear();
 }
-
+function dateFormat(el){
+    value = el.value;
+    el.value = value.replace(/^([\d]{4})([\d]{2})([\d]{2})$/,"$1/$2/$3");
+}
 
 function takeshot() {
     let div =document.getElementById('photo');

@@ -27,26 +27,24 @@
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-  <script>
-    $('.datepicker').datepicker();
-  </script>
+
 
 
 </head>
 
 <body class="text-center justify-content-center mt-5 mb-5" id="gradient">
-  <form class="form_body" data-aos="fade-up" name="valForm" data-aos="zoom-in" data-aos-once="true" onsubmit="return(validate());">
-    <img class="mt-2 mb-4" src="files/nerw_logo.png" alt="" width="300">
+  <form class="form_body" data-aos="fade-up" name="valForm" data-aos="zoom-in" data-aos-once="true" method="post" action="">
+    <img class=" mt-2 mb-4" src="files/nerw_logo.png" alt="" width="300">
     <h2 class="text-dark" data-aos-once="true" data-aos="fade-up" data-aos-delay="550" data-aos-duration="2000">Enter Applicable Information</h2>
-    <div class="form-floating" data-aos="fade-down-left" data-aos-delay="350" data-aos-duration="500">
-      <input type="text" class="form-control -overlayed" id="fname" name="nname" placeholder="Lastname-Firstname-Middle" onkeyup="success()" required>
+    <div class="form-floating mb-2" data-aos="fade-down-left" data-aos-delay="350" data-aos-duration="500">
+      <input type="text" class="form-control -overlayed" id="fname" name="nname" placeholder="Lastname-Firstname-Middle" onkeyup="success()">
       <label for="floatingInput">Full Name*</label>
     </div>
-    <div class="form-floating" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="550" data-aos-duration="500">
-      <input type="number" id="datepicker" name="ndate" class="form-control" placeholder="dd/mm/yyyy" onfocus="(this.type='date')">
+    <div class="form-floating  mb-2" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="550" data-aos-duration="500">
+      <input type="text" id="date" name="ndate" class="form-control" placeholder="dd/mm/yyyy">
       <label for="floatingInput">Birthdate*</label>
     </div>
-    <div class="input-group form-floating" data-aos-once="true" data-aos="fade-down-left" data-aos-delay="750" data-aos-duration="500">
+    <div class="input-group form-floating mb-2" data-aos-once="true" data-aos="fade-down-left" data-aos-delay="750" data-aos-duration="500">
       <label class="input-group-text" for="inputGroupSelect01">Gender*</label>
       <select class="form-select" id="inputGroupSelect01">
         <option selected>Gender</option>
@@ -54,19 +52,19 @@
         <option value="Female">Female</option>
       </select>
     </div>
-    <div class="form-floating" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="950">
+    <div class="form-floating mb-2" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="950">
       <input type="text" class="form-control" rows="3" id="faddress" name="naddress" placeholder="blg.no/district/barangay/">
       <label for="floatingInput">Address*</label>
     </div>
-    <div class="form-floating" data-aos-once="true" data-aos="fade-down-left" data-aos-delay="1150">
+    <div class="form-floating mb-2" data-aos-once="true" data-aos="fade-down-left" data-aos-delay="1150">
       <input type="email" class="form-control" id="femail" name="nemail" placeholder="fname.lastname@gmail.com">
       <label for="floatingInput">Email</label>
     </div>
-    <div class="form-floating" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="1350">
+    <div class="form-floating mb-2" data-aos-once="true" data-aos="fade-down-right" data-aos-delay="1350">
       <input type="number" class="form-control" id="fphone" name="nphone" placeholder="09123456789">
       <label for="floatingInput">Phone Number*</label>
     </div>
-    <button type="button" class=" w-100 btn btn-lg btn-primary mt-4" data-aos-once="true" data-aos="flip-right" data-aos-delay="1450" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Generate QR
+    <button type="button" class="w-100 btn btn-lg btn-primary mt-4" data-aos-once="true" data-aos="flip-right" data-aos-delay="1450" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Generate QR
       Code</button>
     <button type="button" class="w-100 btn btn-lg btn-info mt-2" data-aos-once="true" data-aos="flip-right" data-aos-delay="1850" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#guidestatic">Guide</button>
     <p class="mt-5 mb-3 text-muted" data-aos-once="true" data-aos="zoom-in" data-aos-delay="2050" data-aos-duration="2000">&copy; Gabriel Asuncion </p>
@@ -151,8 +149,37 @@
 </script>
 <script src="node_modules/easyqrcodejs/src/easy.qrcode.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <script>
   AOS.init();
+</script>
+<script>
+  var date = document.getElementById('date');
+
+  function checkValue(str, max) {
+    if (str.charAt(0) !== '0' || str == '00') {
+      var num = parseInt(str);
+      if (isNaN(num) || num <= 0 || num > max) num = 1;
+      str = num > parseInt(max.toString().charAt(0)) &&
+        num.toString().length == 1 ? '0' + num : num.toString();
+    };
+    return str;
+  };
+
+  date.addEventListener('input', function(e) {
+    this.type = 'text';
+    var input = this.value;
+    if (/\D\/$/.test(input)) input = input.substr(0, input.length - 1);
+    var values = input.split('/').map(function(v) {
+      return v.replace(/\D/g, '')
+    });
+    if (values[0]) values[0] = checkValue(values[0], 12);
+    if (values[1]) values[1] = checkValue(values[1], 31);
+    var output = values.map(function(v, i) {
+      return v.length == 2 && i < 2 ? v + '/' : v;
+    });
+    this.value = output.join('').substr(0, 10);
+  });
 </script>
 <script>
   $(function() {
