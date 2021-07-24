@@ -24,6 +24,13 @@
   padding: 0px;
   margin: 0px;
 }
+.bday_hint{
+  color: #888;
+font-size: 1em;
+margin-top: 10px;
+display: block;
+align-self: ;
+}
 .form_body{
   background: white;
   padding: 20px;
