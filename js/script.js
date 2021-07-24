@@ -33,8 +33,8 @@ function generateQR() {
     logo: "files/qr-logo.png",
     logoWidth: 65,
     logoHeight: 65,
-    width: 360,
-    height: 360,
+    width: 320,
+    height: 320,
     colorDark : "#000000",
     colorLight : "#ffffff",
     correctLevel : QRCode.CorrectLevel.H
@@ -45,23 +45,16 @@ QR_CODE.makeCode(revjoined);
 function clearCode(){
   var QR_CODE = new QRCode("qrcoder", {
     logo: "files/qr-logo.png",
-    width: 360,
-    height: 360,
+    logoWidth: 65,
+    logoHeight: 65,
+    width: 320,
+    height: 320,
     colorDark : "#000000",
     colorLight : "#ffffff",
     correctLevel : QRCode.CorrectLevel.H
 });QR_CODE.clear();
 }
-function clearQR(){
-  var QR_CODE = new QRCode("qrcoder", {
-    width: 520,
-    height: 520,
-    colorDark: "#000000",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H,
-  });
-  QR_CODE.clear();
-}
+
 
 function takeshot() {
     let div =document.getElementById('photo');
