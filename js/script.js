@@ -24,13 +24,13 @@ function generateQR() {
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
   var dateTime = date+' '+time;
-  var joined = name+";"+bday+";"+sex+";"+address+";"+phone+";"+email+";"+temp+";0;0;0;0;"+dateTime+";1";
+  var joined = name+";"+bday+";"+sex+";"+address+";"+phone+";"+email+";"+temp+";"+makeid(20)+";"+makeid(20)+";0;0;"+dateTime+";1";
   // var encrypted = CryptoJS.AES.encrypt(joined, "password");
   // document.getElementById("content").value = encrypted;
   document.getElementById("qr-name").innerHTML  = name;
   var revjoined = document.getElementById("content").value = reverseString(joined);
   var QR_CODE = new QRCode("qrcoder", {
-    logo: "/files/qr-logo.png",
+    logo: "filess/qr-logo.png",
     logoWidth: 65,
     logoHeight: 65,
     width: 220,
@@ -42,6 +42,17 @@ function generateQR() {
 });
 QR_CODE.makeCode(revjoined);
 }
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() *
+ charactersLength));
+   }
+   return result;
+}
+
 
 function clearCode(){
   var QR_CODE = new QRCode("qrcoder", {
@@ -156,3 +167,14 @@ var x = setInterval(function() {
     document.getElementById("timer").innerHTML = "SIte's up";
   }
 }, 1000);
+
+$('.btn-p').click(function(){
+  var buttonId = $(this).attr('id');
+  $('#modal-container').removeAttr('class').addClass(buttonId);
+  $('body').addClass('modal-active');
+})
+
+$('#modal-container').click(function(){
+  $(this).addClass('out');
+  $('body').removeClass('modal-active');
+});

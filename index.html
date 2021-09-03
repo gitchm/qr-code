@@ -11,6 +11,8 @@
   <script src="js/script.js"></script>
   <link rel="stylesheet" href="styles/style.css" />
   <script src="m-datepicker.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script src="js/qrcode.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -67,14 +69,19 @@
     </div>
     <button type="button" class="w-100 btn btn-lg btn-primary mt-4" data-aos-once="true" data-aos="flip-right" data-aos-delay="1450" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Generate QR
       Code</button>
-    <button type="button" class="w-100 btn btn-lg btn-info mt-2" data-aos-once="true" data-aos="flip-right" data-aos-delay="1850" data-aos-duration="2000" id="generate" data-bs-toggle="modal" data-bs-target="#guidestatic">Guide</button>
+    <button id="six" type="button" class="w-100 btn btn-lg btn-info mt-2 btn-p" data-aos-once="true" data-aos="flip-right" data-aos-delay="1850" data-aos-duration="2000" id="generate" data-bs-toggle="modal"
+      data-bs-target="#guidestatic">Guide</button>
+    <a href="https://github.com/gitchm/scans" class="w-100 btn btn-lg btn-warning mt-2 btn-p" target="_blank" data-aos-once="true" data-aos="flip-right" data-aos-delay="1850" data-aos-duration="2000">
+         Download APK
+    </a>
     <p class="mt-5 mb-3 text-muted" data-aos-once="true" data-aos="zoom-in" data-aos-delay="2050" data-aos-duration="2000">&copy; Gabriel Asuncion </p>
   </form>
 
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade modal-container" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Generated QR Code</h5>
         </div>
